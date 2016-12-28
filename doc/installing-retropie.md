@@ -7,19 +7,19 @@ To copy Retropie image to my SD card on Linux I followed the instructions provid
  > __NOTE__: if your card is listed as something like `/dev/mmcblk0p1`, then `p1` is the partition number, not only `1`as in my case.
 
 2. Unmount SD card (all partitions):
-```
-umount /dev/sdc1
-umount /dev/sdc2
-```
-You can use `df -h` command again to check you correctly unmount the card.
+ ```
+ umount /dev/sdc1
+ umount /dev/sdc2
+ ```
+ You can use `df -h` command again to check you correctly unmount the card.
 
 3. Write the image to the SD card:
-```
-sudo dd bs=4M if=retropie-4.1-rpi1_zero.img of=/dev/sdc
-```
-Note that you must remove partition number from your device name. If `bs=4M` does not work, `bs=1M` can be used instead (it will slow down the process, but should work)
+ ```
+ sudo dd bs=4M if=retropie-4.1-rpi1_zero.img of=/dev/sdc
+ ```
+ Note that you must remove partition number from your device name. If `bs=4M` does not work, `bs=1M` can be used instead (it will slow down the process, but should work)
 
-  `dd`command does not provide progress info. You can check [the original instructions I followed][1] to know how to see progress info and also how to check the image was correctly written to your card.
+ `dd`command does not provide progress info. You can check [the original instructions I followed][1] to know how to see progress info and also how to check the image was correctly written to your card.
 
 4. Run `sudo sync` command to ensure the write cache is flushed and you can safely unmount your SD card.
 
